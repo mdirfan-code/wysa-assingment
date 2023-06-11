@@ -59,7 +59,7 @@ module.exports = {
                     errorMessage += "\n\t- Must Include digit."
                     errorMessage += "\n\t- Must Include special character (!#%@_)"
 
-                    validationErrors.push()
+                    validationErrors.push(errorMessage);
                 } 
             }
             else{
