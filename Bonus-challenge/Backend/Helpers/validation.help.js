@@ -53,7 +53,13 @@ module.exports = {
             {
                 let passPattern = /^(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=\D*\d)(?=[^!#%@_ ]*[!#%@_ ])[A-Za-z0-9!#@%_ ]{8,32}$/;
                 if( !passPattern.test(request.body.password) ){
-                    validationErrors.push("Entered password is not satisfying password guidelines.")
+                    let errorMessage = "Entered password is not satisfying password guidelines which are:"
+                    errorMessage += "\n\t- Password length should be equal or greater than 8."
+                    errorMessage += "\n\t- Must Include lowercase letters and uppercase letters."
+                    errorMessage += "\n\t- Must Include digit."
+                    errorMessage += "\n\t- Must Include special character (!#%@_)"
+
+                    validationErrors.push()
                 } 
             }
             else{
