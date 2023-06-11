@@ -1,7 +1,9 @@
 const { response } = require("express");
 
+const user_data = require('../Models/user_data.model');
+
 module.exports = {
-    validateOnboardingData : (request,response,next) =>
+    validateOnboardingData : async (request,response,next) =>
     {
         try
         {
@@ -14,6 +16,33 @@ module.exports = {
                 if(request.body.nickname.length < 3){
                     validationErrors.push("Parameter 'nickname' has character lenght less than 3")
                 } 
+
+                await user_data.findOne(
+                    {nickname: request.body.nickname}
+                )
+                .then(
+                    async (user_data_document) =>
+                    {
+                        if(user_data_document){
+                            validationErrors.push("Entered nickname already exist.")
+                        }
+                    }
+                )
+                .catch(
+                    (error) =>
+                        {
+                            response.status(500).json(
+                                {
+                                    success:0,
+                                    message:"Error occured!",
+                                    data:{
+                                        error
+                                    }
+        
+                                }
+                            );
+                        }
+                ) 
             }
             else{
                 missingParams.push('nickname')
@@ -109,7 +138,7 @@ module.exports = {
                 next();
             }
             else{
-                response.status(400).json({
+                response.status(200).json({
                     success:0,
                     message:"Validation Error",
                     data: {
