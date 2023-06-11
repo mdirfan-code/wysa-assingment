@@ -347,23 +347,27 @@ const Card8 = ({setCurrentCard, requestParam, setSleepEfficiency}) => {
                     setCurrentCard(9)
                 }
                 else {
-                    let message = response.data.message + "\n------\n";
+                    let message = "";
                     if(response.data.message === 'Validation Error')
                     {
                         if(response.data.data.missingParams.length > 0)
                         {
-                            message += "\nMissing Params:\n"
+                            message += "--------------------\nMissing Params:\n"
+                            message += "--------------------\n";
                             for (let i in response.data.data.missingParams ) {
-                                message+= response.data.data.missingParams[i]+"\n";
+                                message+= "* "+response.data.data.missingParams[i]+"\n";
                             }
+                            message += "--------------------\n";
                         }
                         if(response.data.data.validationErrors.length > 0)
                         {
-                            message += "\nValidation Error:"
+                            message += "\n--------------------\nValidation Error:"
+                            message += "\n--------------------"
                             for (let i in response.data.data.validationErrors)
                             {
-                                message+= "\n" + response.data.data.validationErrors[i];
+                                message+= "\n* " + response.data.data.validationErrors[i];
                             }
+                            message+= "\n--------------------"
                         }
                     }
                     alert(message);
