@@ -72,7 +72,7 @@ Also, I want `available_nickname` API as a part of our system because in case wh
     - We will verify requested parameters our in proper format and have required datatype.
     - We will check whether given parameters contains any aggregation function which may cause SQL Injection or not. If yes we sanitize it. 
 
-![API.available_nickname.Interaction (1).jpg](<attachment:API.available_nickname.Interaction (1).jpg>)
+![Alt text](<API.available_nickname.Interaction (1)-1.jpg>)
 
 
 #### user_sleep_data
@@ -109,4 +109,4 @@ Also, I want `available_nickname` API as a part of our system because in case wh
     - We will verify requested parameters our in proper format and have required datatype.
     - We will check whether given parameters contains any aggregation function which may cause SQL Injection or not. If yes we sanitize it. 
 
-![API.user_sleep_data.Interaction (1).jpg](<attachment:API.user_sleep_data.Interaction (1).jpg>)
+![Alt text](<API.user_sleep_data.Interaction (1)-1.jpg>)
