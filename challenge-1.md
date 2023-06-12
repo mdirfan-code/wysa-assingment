@@ -10,7 +10,7 @@ That's why I think, NoSQL Database is quite efficient for particular task.
 Moving towards modeling data I think for particular task we can have various models but here I have most efficient data model.
 
 ```
---------------------Document-1---------------------------------
+--------------------Model-1---------------------------------
 user_data = 
 {
     "Nickname" : String
@@ -22,7 +22,7 @@ user_data =
 
 }
 
---------------------Document-2---------------------------------
+--------------------Model-2---------------------------------
 sleep_data =
 {
     "_id":ObjectId,
